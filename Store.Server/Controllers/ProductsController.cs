@@ -6,6 +6,7 @@ using Store.Server.Repositories.Contracts;
 
 namespace Store.Server.Controllers
 {
+    //[Route("[controller]/products")]
     [Route("/products")]
     [ApiController]
     public class ProductsController(IProductRepository productRepository) : ControllerBase
