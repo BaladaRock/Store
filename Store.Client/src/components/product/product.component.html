@@ -1,0 +1,11 @@
+<div *ngIf="product" class="product-card-wrapper">
+<a [routerLink]="['products/', product.idxCode, product.idxCodeAlt]">
+  <div  class="product-card" [style.backgroundImage]="'url(' + getImagePath() + ')'">
+  </div>
+</a>
+  <div class="product-details">
+    <h2>{{ product.name }}</h2>
+    <p>IdxCode: {{ product.idxCode }}</p>
+    <p>IdxCodeAlt: {{ product.idxCodeAlt }}</p>
+  </div>
+</div>

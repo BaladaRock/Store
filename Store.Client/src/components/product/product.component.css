@@ -1,9 +1,12 @@
 .product-card {
-    width: 100%;
+    min-height: 43vh;
+    min-width: 25vw;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .product-details {
