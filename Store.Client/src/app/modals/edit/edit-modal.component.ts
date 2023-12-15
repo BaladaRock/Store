@@ -15,7 +15,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
       <button (click)="saveChanges()">OK</button>
     </div>
-  `
+  `,
+  styleUrls: ['./edit-modal.component.css']
 })
 export class EditModalComponent {
   @Input() editName: string | null = null;

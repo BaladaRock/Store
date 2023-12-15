@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../app/models/product';
-
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',

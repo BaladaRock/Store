@@ -24,9 +24,9 @@ describe('AppComponent', () => {
     httpMock.verify();
   });
 
-  // it('should create the app', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
 
   // it('should retrieve weather forecasts from the server', () => {
   //   const mockForecasts = [
@@ -35,11 +35,5 @@ describe('AppComponent', () => {
   //   ];
 
   //   component.ngOnInit();
-
-  //   const req = httpMock.expectOne('/weatherforecast');
-  //   expect(req.request.method).toEqual('GET');
-  //   req.flush(mockForecasts);
-
-  //   expect(component.products).toEqual(mockForecasts);
-  // });
+  
 });
