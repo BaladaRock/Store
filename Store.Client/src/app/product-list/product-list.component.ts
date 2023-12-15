@@ -1,15 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-interface Product {
-  idxCode: string;
-  idxCodeAlt: string;
-  name: string | null;
-  date: string | null;
-  quantity: number | null;
-  price: number | null;
-}
+import { Product } from '../../app/models/product';
 
 @Component({
   selector: 'app-product-list',

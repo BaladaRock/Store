@@ -1,5 +1,4 @@
-
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
@@ -11,18 +10,19 @@ import { Product } from '../../app/models/product';
   styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
+
   mainId: string | null = null;
   altId: string | null = null;
   productDetails: Product | null = null;
-  imageUrl: string | null = null;
-
   private subscription: Subscription = new Subscription();
+  
+  @Input() public imageUrl: string | null | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
-
+    
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.mainId = params['mainId'];
@@ -30,14 +30,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       this.loadProduct();
     });
   }
-
+    
   loadProduct() {
- 
     const productObserver = {
       next: (result: Product | null) => {
         this.productDetails = result;
         this.imageUrl = this.productService.getImagePath(this.productDetails) || null;
-        console.log(this.productDetails);
       },
       error: (error: any) => {
         console.error(error);
@@ -52,4 +50,3 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 }
-

@@ -16,6 +16,7 @@ export class ProductService {
 
   getProductByIds(): Observable<ProductListComponent | null> {
     const url = `${this.apiUrl}`;
+    var count = this.http.get<ProductListComponent | null>(url);
     return this.http.get<ProductListComponent | null>(url);
   }
 
@@ -24,7 +25,7 @@ export class ProductService {
     return this.http.get<Product | null>(url).pipe(
       catchError((error: any) => {
         console.error(error);
-        throw error; // relansează eroarea pentru a fi tratată ulterior
+        throw error;
       })
     );
   }
@@ -37,5 +38,5 @@ export class ProductService {
     return this.imageUrl; 
   }
 
-  // Alte metode pentru interacțiunea cu API-ul legat de produse pot fi adăugate aici
+  // Add here more methods to interact with the API
 }

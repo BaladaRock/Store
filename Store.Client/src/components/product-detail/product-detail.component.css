@@ -1,17 +1,17 @@
 .product-card {
-    min-height: 43vh;
-    min-width: 25vw;
+    min-height: 55vh;
+    min-width: 20vw;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     box-sizing: border-box;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   
   .product-details {
     text-align: center;
-    min-height: 20vh;
+    /* min-height: 60vh; */
   }
   
   .product-card img {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Product } from '../../app/models/product';
 import { ProductService } from '../../services/product.service';
 
@@ -8,8 +8,8 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['product.component.css']
 })
 export class ProductComponent {
+  
   @Input() product: Product | null = null;
-  public imageUrl: string | null = null;
   constructor(private productService: ProductService){}
 
   getImagePath(): string | null {
