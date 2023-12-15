@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import {ProductComponent} from '../components/product/product.component'
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
+import { ProductListComponent } from '../components/product-list/product-list.component';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +14,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProductByIds(): Observable<ProductComponent | null> {
+  getProductByIds(): Observable<ProductListComponent | null> {
     const url = `${this.apiUrl}`;
-    return this.http.get<ProductComponent | null>(url);
+    return this.http.get<ProductListComponent | null>(url);
   }
 
   getProduct(mainId: string | null, altId: string | null): Observable<ProductComponent | null> {

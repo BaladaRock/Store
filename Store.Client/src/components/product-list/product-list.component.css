@@ -1,4 +1,4 @@
-﻿/* .products-container-wrapper{
+.products-container-wrapper{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,4 +35,4 @@
     .products-container-wrapper {
       flex: 0 0 calc(80% - 20px);
     }
-  } */
+  }

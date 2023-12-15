@@ -1,0 +1,8 @@
+<h1 id="tableLabel">Products</h1>
+<div class="products-container-wrapper">
+    <div *ngFor="let product of products" class="product-container">
+        <app-product [product]="product"></app-product>
+    </div>
+
+<router-outlet></router-outlet>
+</div>

@@ -1,5 +1,5 @@
 <div *ngIf="product" class="product-card-wrapper">
-<a [routerLink]="['products/', product.idxCode, product.idxCodeAlt]">
+<a [routerLink]="['/products', product.idxCode, product.idxCodeAlt]">
   <div  class="product-card" [style.backgroundImage]="'url(' + getImagePath() + ')'">
   </div>
 </a>
@@ -8,4 +8,5 @@
     <p>IdxCode: {{ product.idxCode }}</p>
     <p>IdxCodeAlt: {{ product.idxCodeAlt }}</p>
   </div>
+
 </div>

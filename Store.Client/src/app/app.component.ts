@@ -15,25 +15,6 @@ interface Product {
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  public products: Product[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.getProducts();
-  }
-
-  getProducts() {
-    this.http.get<Product[]>('/products').subscribe(
-      (result) => {
-        this.products = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
+export class AppComponent {
   title = 'store.client';
 }
