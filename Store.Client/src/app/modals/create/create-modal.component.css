@@ -1,0 +1,20 @@
+.edit-modal {
+  position: absolute;
+  top: 9%;
+  left: 147px;
+  display: flex;
+  flex-direction: column;
+  width: 20% !important;
+  padding: 1%;
+  margin: 1%;
+  font-size: x-large;
+}
+
+.edit-modal input {
+  padding: 2%;
+  margin-bottom: 4%;
+}
+
+.edit-modal button{
+  margin-top: 6%;
+}

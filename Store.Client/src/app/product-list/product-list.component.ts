@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from '../../app/models/product';
+import { ProductService } from '../../services/product.service';
+import { catchError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -8,22 +10,30 @@ import { Product } from '../../app/models/product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  public products: Product[] = [];
+  public products: Product[] | null = [];
 
-  constructor(private http: HttpClient) {}
+  // @Output() createProduct = new EventEmitter<void>();
+
+  constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts() {
-    this.http.get<Product[]>('/products').subscribe(
-      (result) => {
+    this.productService.getProductByIds()
+      .pipe(
+        catchError((error) => {
+          console.error(error);
+          throw error;
+        })
+      )
+      .subscribe((result) => {
         this.products = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+      });
+  }
+
+  redirectToCreateProduct() {
+    this.router.navigate(['/create-product']);
   }
 }

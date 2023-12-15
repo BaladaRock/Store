@@ -19,6 +19,11 @@
   flex-direction: column;
 }
 
+.product-details-name {
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+
 .product-details-name,
 .product-details {
   text-align: center;

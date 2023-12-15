@@ -10,11 +10,12 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { EditModalComponent } from './modals/edit/edit-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { CreateProductComponent } from '../components/create-product-component/create-product.component';
 
 @NgModule({
   declarations: [
     AppComponent, ProductComponent, ProductDetailComponent, ProductListComponent,
-    EditModalComponent
+    EditModalComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

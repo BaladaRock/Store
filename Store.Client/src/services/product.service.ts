@@ -14,14 +14,14 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProductByIds(): Observable<ProductListComponent | null> {
+  getProductByIds(): Observable<Product[] | null> {
     const url = `${this.apiUrl}`;
-    var count = this.http.get<ProductListComponent | null>(url);
-    return this.http.get<ProductListComponent | null>(url);
+    return this.http.get<Product[] | null>(url);
   }
 
   getProduct(mainId: string | null, altId: string | null): Observable<Product | null> {
     const url = `${this.apiUrl}/${mainId}/${altId}`;
+
     return this.http.get<Product | null>(url).pipe(
       catchError((error: any) => {
         console.error(error);
@@ -30,17 +30,20 @@ export class ProductService {
     );
   }
 
-  getImagePath(product: Product | null): string | null {
-    const coreFileName = "image_";
-    var randomImageNumber = Math.floor((Math.random() * 9 + 1));
-    this.imageUrl = product ? `assets/images/${coreFileName}${randomImageNumber}.jpg` : null;
-
-    return this.imageUrl;
-  }
-
   updateProduct(mainId: string, altId: string, updatedProduct: Product): Observable<Product | null> {
     const url = `${this.apiUrl}/${mainId}/${altId}`;
+
     return this.http.put<Product | null>(url, updatedProduct).pipe(
+      catchError((error: any) => {
+        console.error(error);
+        throw error;
+      })
+    );
+  }
+
+  createProduct(product: Product | null): Observable<Product | null> {
+    const url = `${this.apiUrl}`;
+    return this.http.post<Product>(url, product).pipe(
       catchError((error: any) => {
         console.error(error);
         throw error;
@@ -48,6 +51,14 @@ export class ProductService {
     );
 
     // Add here more methods to interact with the API
+  }
+
+  getImagePath(product: Product | null): string | null {
+    const coreFileName = "image_";
+    var randomImageNumber = Math.floor((Math.random() * 9 + 1));
+    this.imageUrl = product ? `assets/images/${coreFileName}${randomImageNumber}.jpg` : null;
+
+    return this.imageUrl;
   }
 
 }
