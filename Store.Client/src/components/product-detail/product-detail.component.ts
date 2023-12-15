@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../app/models/product';
+import { EditModalComponent } from '../../app/modals/edit-modal.component';
+
 
 @Component({
   selector: 'app-product-detail',
@@ -14,15 +16,47 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   mainId: string | null = null;
   altId: string | null = null;
   productDetails: Product | null = null;
+  isEditModalOpen = false;
+  editName: string | null = null;
+  editPrice: number | null = null;
+  editQuantity: number | null = null;
+  editDate: string | null = null;
   private subscription: Subscription = new Subscription();
-  
+
   @Input() public imageUrl: string | null | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
-  ) {}
-    
+  ) { }
+
+// Edit modal logic
+openEditModal() {
+  this.isEditModalOpen = true;
+  this.editName = this.productDetails?.name || '';
+  this.editPrice = this.productDetails?.price || null;
+  this.editQuantity = this.productDetails?.quantity || null;
+  this.editDate = this.productDetails?.date || '';
+}
+
+saveChanges() {
+  this.productService.updateProduct(
+    this.mainId || '',
+    this.altId || '',
+    {
+      name: this.editName || '',
+      price: this.editPrice || null,
+      quantity: this.editQuantity || null,
+      date: this.editDate || '',
+      idxCode: '',
+      idxCodeAlt: ''
+    }
+  ).subscribe((updatedProduct) => {
+    this.productDetails = updatedProduct;
+    this.isEditModalOpen = false;
+  });
+}
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.mainId = params['mainId'];
@@ -30,7 +64,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       this.loadProduct();
     });
   }
-    
+
   loadProduct() {
     const productObserver = {
       next: (result: Product | null) => {
@@ -41,9 +75,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         console.error(error);
       }
     };
-  
+
     this.subscription = this.productService.getProduct(this.mainId, this.altId)
-        .subscribe(productObserver);
+      .subscribe(productObserver);
   }
 
   ngOnDestroy() {

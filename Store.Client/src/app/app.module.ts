@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from '../components/product/product.component';
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { EditModalComponent } from './modals/edit-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent, ProductComponent, ProductDetailComponent, ProductListComponent
+    AppComponent, ProductComponent, ProductDetailComponent, ProductListComponent,
+    EditModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
