@@ -1,20 +1,22 @@
-// product-detail.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
-import { ProductComponent } from '../product/product.component';
 import { Subscription } from 'rxjs';
+import { Product } from '../../app/models/product';
 
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, OnDestroy {
   mainId: string | null = null;
   altId: string | null = null;
-  product: ProductComponent | null = null;
+  productDetails: Product | null = null;
+  imageUrl: string | null = null;
+
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
@@ -31,8 +33,10 @@ export class ProductDetailComponent implements OnInit {
 
   loadProduct() {
     const productObserver = {
-      next: (result: ProductComponent | null) => {
-        this.product = result;
+      next: (result: Product | null) => {
+        this.productDetails = result;
+        this.imageUrl = this.productService.getImagePath(this.productDetails) || null;
+        console.log(this.productDetails);
       },
       error: (error: any) => {
         console.error(error);
@@ -42,10 +46,9 @@ export class ProductDetailComponent implements OnInit {
     this.subscription = this.productService.getProduct(this.mainId, this.altId)
         .subscribe(productObserver);
   }
-  
-  private subscription: Subscription = new Subscription();
-  
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }
+

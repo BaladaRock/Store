@@ -1,13 +1,6 @@
 import { Component, Input } from '@angular/core';
-
-interface Product {
-  idxCode: string;
-  idxCodeAlt: string;
-  name: string | null;
-  date: string | null;
-  quantity: number | null;
-  price: number | null;
-}
+import { Product } from '../../app/models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -16,10 +9,10 @@ interface Product {
 })
 export class ProductComponent {
   @Input() product: Product | null = null;
+  public imageUrl: string | null = null;
+  constructor(private productService: ProductService){}
 
   getImagePath(): string | null {
-    const coreFileName = "image_";
-    var randomImageNumber = Math.floor((Math.random() * 9 + 1));
-    return this.product ? `assets/images/${coreFileName}${randomImageNumber}.jpg` : null;
+    return this.productService.getImagePath(this.product); 
   }
 }

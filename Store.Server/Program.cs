@@ -22,6 +22,15 @@ var app = builder.Build();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
+//app.UseCors(options =>
+//  options.WithOrigins("http://localhost:4200")
+//    .AllowAnyMethod()
+//    .AllowAnyHeader());
+//builder.Services.AddCors();
+builder.Services.AddCors();
+
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
