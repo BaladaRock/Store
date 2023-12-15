@@ -1,12 +1,11 @@
-.product-card {
-    min-height: 55vh;
-    min-width: 20vw;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+.product-details-card {
+    min-height: 50vh;
     padding: 10px;
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-size: contain;
+    width: 25%;
+    margin: 0 auto;
   }
   
   .product-details {
@@ -14,7 +13,25 @@
     /* min-height: 60vh; */
   }
   
-  .product-card img {
+  .product-details-card img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
+  }
+
+  .product-details-wrapper {
+    margin: 10vh 10vh 10vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-details-name {
+    text-align: center;
+  }
+
+  .product-details-properties p {
+    font-size: large;
+  }
+
+  h1 {
+    text-align: center;
   }

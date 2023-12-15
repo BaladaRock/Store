@@ -1,9 +1,17 @@
-<div *ngIf="productDetails" class="product-card-wrapper">
-  <div class="product-card" [style.backgroundImage]="'url(' + imageUrl + ')'">
-    Product Details
-  </div>
+<div *ngIf="productDetails" class="product-details-wrapper">
+  <h1>Product Details</h1>
+
+  <h2 class="product-details-name">{{ productDetails.name }}</h2>
   <div class="product-details">
-    <p>IdxCode: {{ productDetails.idxCode }}</p>
-    <p>IdxCodeAlt: {{ productDetails.idxCodeAlt }}</p>
+    <div class="product-details-card" [style.backgroundImage]="'url(' + imageUrl + ')'">
+    </div>
+    <div class="product-details-properties">
+      <p>IdxCode: {{ productDetails.idxCode }}</p>
+      <p>IdxCodeAlt: {{ productDetails.idxCodeAlt }}</p>
+      <p>Name: {{ productDetails.name }}</p>
+      <p>Price: {{ productDetails.price }}</p>
+      <p>Quantity: {{ productDetails.quantity }}</p>
+      <p>Date of registration: {{ productDetails.date }}</p>
+    </div>
   </div>
 </div>
