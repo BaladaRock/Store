@@ -32,6 +32,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   loadProduct() {
+ 
     const productObserver = {
       next: (result: Product | null) => {
         this.productDetails = result;
