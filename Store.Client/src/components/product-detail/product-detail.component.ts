@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../app/models/product';
-import { EditModalComponent } from '../../app/modals/edit-modal.component';
-
 
 @Component({
   selector: 'app-product-detail',
@@ -21,8 +19,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   editPrice: number | null = null;
   editQuantity: number | null = null;
   editDate: string | null = null;
-  private subscription: Subscription = new Subscription();
 
+  private subscription: Subscription = new Subscription();
   @Input() public imageUrl: string | null | undefined;
 
   constructor(

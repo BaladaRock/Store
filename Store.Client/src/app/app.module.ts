@@ -8,6 +8,8 @@ import { ProductComponent } from '../components/product/product.component';
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { EditModalComponent } from './modals/edit-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { EditModalComponent } from './modals/edit-modal.component';
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule,
+    NgbModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

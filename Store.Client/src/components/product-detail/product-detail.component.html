@@ -13,15 +13,12 @@
       <p>Quantity: {{ productDetails.quantity }}</p>
       <p>Date of registration: {{ productDetails.date }}</p>
 
-      <!-- Adăugare buton "Edit" care va declanșa modalul de editare -->
     <button (click)="openEditModal()">Edit</button>
     </div>
   </div>
 </div>
 
-<!-- Alte elemente pentru modalul de editare -->
 <div *ngIf="isEditModalOpen" class="edit-modal">
-  <!-- Formular de editare -->
   <label>Name:</label>
   <input [(ngModel)]="editName" />
   <label>Price:</label>
@@ -31,6 +28,5 @@
   <label>Date:</label>
   <input [(ngModel)]="editDate" />
 
-  <!-- Buton pentru salvarea modificărilor -->
   <button (click)="saveChanges()">OK</button>
 </div>
