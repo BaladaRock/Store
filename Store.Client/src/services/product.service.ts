@@ -43,14 +43,25 @@ export class ProductService {
 
   createProduct(product: Product | null): Observable<Product | null> {
     const url = `${this.apiUrl}`;
+
     return this.http.post<Product>(url, product).pipe(
       catchError((error: any) => {
         console.error(error);
         throw error;
       })
     );
+  }
 
-    // Add here more methods to interact with the API
+  deleteProduct(productToDelete: Product): Observable<Product | null> {
+    const url = `${this.apiUrl}/${productToDelete.idxCode}/${productToDelete.idxCodeAlt}`;
+
+      return this.http.delete<Product>(url).pipe(
+        catchError((error: any) => {
+          console.error(error);
+          throw error;
+        })
+      );
+
   }
 
   getImagePath(product: Product | null): string | null {
