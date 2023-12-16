@@ -16,4 +16,7 @@
         <button (click)="createProdcut()">CREATE PRODUCT</button>
     </div>
 
+    <div *ngIf="isError || successfullCreation" [class.error]="isError" [class.success]="successfullCreation">
+        {{ message }}
+    </div>
 </div>

@@ -8,6 +8,22 @@
     left: 39%;
 }
 
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.error, .success {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 26%;
+    font-size: x-large;
+}
+
 h1 {
     text-align: center;
     margin-bottom: 3%;

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
-import { Form } from '@angular/forms';
+import { catchError, tap } from 'rxjs';
 
 @Component({
   selector: 'app-create-product',
@@ -15,6 +15,10 @@ export class CreateProductComponent {
   productName: string | null = null;
   productPrice: number | null = null;
   productQuantity: number | null = null;
+
+  message: string | null = null;
+  isError: boolean = false;
+  successfullCreation: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -31,9 +35,21 @@ export class CreateProductComponent {
       date: ''
     }
 
-    this.productService.createProduct(newProduct).subscribe(() => {
-      this.router.navigate(['/'])
-    });
+    this.productService.createProduct(newProduct).pipe(
+      tap(() => {
+        this.message = 'A new product has been created!';
+        this.successfullCreation = true;
+        this.isError = false;
+
+        setTimeout(() => this.router.navigate(['/']), 2000);
+      }),
+      catchError(() => {
+        this.message = 'Please check your fields!' +
+          ' Make sure there is no other product with the same IdxCode and IdxCodeAlt!';
+        this.isError = true;
+        return [];
+      })
+    ).subscribe();
 
   }
 }
