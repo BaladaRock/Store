@@ -1,0 +1,22 @@
+<div class="create-product-wrapper">
+    <h1>Create product</h1>
+
+    <div class="create-product-form create-modal">
+        <label>IdxCode:</label>
+        <input [(ngModel)]="productMainId" />
+        <label>IdxCodeAlt:</label>
+        <input [(ngModel)]="productAltId" />
+        <label>Name:</label>
+        <input [(ngModel)]="productName" />
+        <label>Price:</label>
+        <input [(ngModel)]="productPrice" />
+        <label>Quantity:</label>
+        <input [(ngModel)]="productQuantity" />
+
+        <button (click)="createProdcut()">CREATE PRODUCT</button>
+    </div>
+
+    <div *ngIf="isError || successfullCreation" [class.error]="isError" [class.success]="successfullCreation">
+        {{ message }}
+    </div>
+</div>

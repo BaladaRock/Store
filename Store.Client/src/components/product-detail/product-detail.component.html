@@ -1,0 +1,32 @@
+<div *ngIf="productDetails" class="product-details-wrapper">
+  <h1>Product Details</h1>
+
+  <h2 class="product-details-name">{{ productDetails.name }}</h2>
+  <div class="product-details">
+    <div class="product-details-card" [style.backgroundImage]="'url(' + imageUrl + ')'">
+    </div>
+    <div class="product-details-properties">
+      <p>IdxCode: {{ productDetails.idxCode }}</p>
+      <p>IdxCodeAlt: {{ productDetails.idxCodeAlt }}</p>
+      <p>Name: {{ productDetails.name }}</p>
+      <p>Price: {{ productDetails.price }}</p>
+      <p>Quantity: {{ productDetails.quantity }}</p>
+      <p>Date of registration: {{ productDetails.date }}</p>
+
+    <button class="edit-button" (click)="openEditModal()">Edit</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isEditModalOpen" class="edit-modal">
+  <label>Name:</label>
+  <input [(ngModel)]="editName" />
+  <label>Price:</label>
+  <input [(ngModel)]="editPrice" />
+  <label>Quantity:</label>
+  <input [(ngModel)]="editQuantity" />
+  <label>Date:</label>
+  <input [(ngModel)]="editDate" />
+
+  <button (click)="saveChanges()">OK</button>
+</div>

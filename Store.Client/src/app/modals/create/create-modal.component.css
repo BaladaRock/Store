@@ -1,0 +1,19 @@
+.create-modal {
+  display: flex;
+  flex-direction: column;
+  width: 20% !important;
+  padding: 1%;
+  margin: 1%;
+  font-size: x-large;
+}
+
+.create-modal input {
+  padding: 2%;
+  margin-bottom: 4%;
+}
+
+.create-modal button {
+  margin-top: 10%;
+  padding: 2%;
+  font-size: larger;
+}
