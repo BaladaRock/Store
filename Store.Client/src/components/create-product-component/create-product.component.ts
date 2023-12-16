@@ -52,4 +52,8 @@ export class CreateProductComponent {
       })
     ).subscribe();
   }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
+  }
 }
