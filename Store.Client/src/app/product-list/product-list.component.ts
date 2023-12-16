@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   public products: Product[] | null = [];
 
-  // @Output() createProduct = new EventEmitter<void>();
-
   constructor(private productService: ProductService, private router: Router) {}
 
   ngOnInit() {

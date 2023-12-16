@@ -27,7 +27,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private productService: ProductService
   ) { }
 
-// Edit modal logic
 openEditModal() {
   this.isEditModalOpen = true;
   this.editName = this.productDetails?.name || '';
