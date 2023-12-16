@@ -37,7 +37,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "src/app/modals/edit/edit-modal.component.css"
+              "src/app/modals/edit/edit-modal.component.css",
+              "src/app/modals/create/create-modal.component.css"
             ],
             "scripts": []
           },
@@ -100,7 +101,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/app/modals/edit/edit-modal.component.css"
+              "src/app/modals/edit/edit-modal.component.css",
+              "src/app/modals/create/create-modal.component.css"
             ],
             "scripts": [],
             "karmaConfig": "karma.conf.js"

@@ -8,6 +8,7 @@ import { ProductComponent } from '../components/product/product.component';
 import { ProductDetailComponent } from '../components/product-detail/product-detail.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { EditModalComponent } from './modals/edit/edit-modal.component';
+import { CreateModalComponent } from './modals/create/create-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { CreateProductComponent } from '../components/create-product-component/create-product.component';
@@ -15,7 +16,7 @@ import { CreateProductComponent } from '../components/create-product-component/c
 @NgModule({
   declarations: [
     AppComponent, ProductComponent, ProductDetailComponent, ProductListComponent,
-    EditModalComponent,
+    CreateProductComponent, EditModalComponent, CreateModalComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

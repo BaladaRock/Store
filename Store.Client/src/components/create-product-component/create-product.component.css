@@ -1,0 +1,14 @@
+.create-product-wrapper {
+    margin-top: 4%;
+}
+
+.create-product-form {
+    position: absolute;
+    top: 15%;
+    left: 39%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3%;
+}

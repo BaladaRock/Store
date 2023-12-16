@@ -1,7 +1,4 @@
-.edit-modal {
-  position: absolute;
-  top: 9%;
-  left: 147px;
+.create-modal {
   display: flex;
   flex-direction: column;
   width: 20% !important;
@@ -10,11 +7,13 @@
   font-size: x-large;
 }
 
-.edit-modal input {
+.create-modal input {
   padding: 2%;
   margin-bottom: 4%;
 }
 
-.edit-modal button{
-  margin-top: 6%;
+.create-modal button {
+  margin-top: 10%;
+  padding: 2%;
+  font-size: larger;
 }
