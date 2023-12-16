@@ -36,20 +36,20 @@ export class CreateProductComponent {
     }
 
     this.productService.createProduct(newProduct).pipe(
-      tap(() => {
-        this.message = 'A new product has been created!';
-        this.successfullCreation = true;
-        this.isError = false;
-
-        setTimeout(() => this.router.navigate(['/']), 2000);
-      }),
-      catchError(() => {
-        this.message = 'Please check your fields!' +
-          ' Make sure there is no other product with the same IdxCode and IdxCodeAlt!';
-        this.isError = true;
-        return [];
+      tap({
+        next: () => {
+          this.message = 'A new product has been created!';
+          this.successfullCreation = true;
+          this.isError = false;
+    
+          setTimeout(() => this.router.navigate(['/']), 2000);
+        },
+        error: () => {
+          this.message = 'Please check your fields!' +
+            ' Make sure there is no other product with the same IdxCode and IdxCodeAlt!';
+          this.isError = true;
+        }
       })
     ).subscribe();
-
   }
 }
