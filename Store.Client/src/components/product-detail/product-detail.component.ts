@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../app/models/product';
@@ -24,7 +24,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private router: Router,
+    private productService: ProductService,
   ) { }
 
 openEditModal() {
@@ -74,6 +75,10 @@ saveChanges() {
 
     this.subscription = this.productService.getProduct(this.mainId, this.altId)
       .subscribe(productObserver);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
   }
 
   ngOnDestroy() {

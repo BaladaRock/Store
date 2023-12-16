@@ -8,6 +8,13 @@
     left: 39%;
 }
 
+.back-btn {
+    position: absolute;
+    top: 9%;
+    left: 2%;
+    padding: 0.5%;
+}
+
 .error {
     color: red;
 }
@@ -16,7 +23,8 @@
     color: green;
 }
 
-.error, .success {
+.error,
+.success {
     position: absolute;
     top: 15%;
     left: 5%;
