@@ -13,8 +13,5 @@
         public int Quantity { get; set; }
 
         public int Price { get; set; }
-
-        //public IEnumerable<Product> Products { get; set; } = new List<Product>();
-
     }
 }
