@@ -96,9 +96,9 @@ namespace Store.Server.Controllers
                 if (productToUpdate == null)
                     return NotFound();
 
-                await _productRepository.UpdateProduct(mainId, altId, product);
+                var updatedProduct = await _productRepository.UpdateProduct(mainId, altId, product);
 
-                return Ok(await _productRepository.GetProductByIds(mainId, altId));
+                return Ok(updatedProduct);
             }
             catch (Exception ex)
             {
@@ -107,7 +107,7 @@ namespace Store.Server.Controllers
         }
 
         [HttpDelete("{mainId}/{altId}")]
-        public async Task<IActionResult> DeleteCompany(string? mainId, string? altId)
+        public async Task<IActionResult> DeleteProduct(string? mainId, string? altId)
         {
             try
             {
