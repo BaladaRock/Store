@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Store.Server.Dto;
 using Store.Server.Entities;
 using Store.Server.Repositories.Contracts;
@@ -53,7 +54,7 @@ namespace Store.Server.Controllers
             try
             {
                 var products = await _productRepository.GetProductsByName(productName);
-                if (products == null)
+                if (products.IsNullOrEmpty())
                     return NotFound();
 
                 return Ok(products);
