@@ -9,7 +9,7 @@ import { Product } from '../app/models/product';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'https://localhost:7098/products';
+  private apiUrl = 'http://localhost:5268/products';
   public imageUrl: string | null = null;
 
   constructor(private http: HttpClient) { }
